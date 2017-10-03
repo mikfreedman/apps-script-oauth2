@@ -12,8 +12,8 @@ function run() {
   var service = getService();
   if (service.hasAccess()) {
     // GET requests require access_token parameter
-
-    var response = UrlFetchApp.fetch(service.getToken().instance_url + '/services/data/v24.0/chatter/users/me', {
+    var url = service.getToken().instance_url + '/services/data/v24.0/chatter/users/me';
+    var response = UrlFetchApp.fetch(url, {
       headers: {
         Authorization: 'Bearer ' + service.getAccessToken()
       }
